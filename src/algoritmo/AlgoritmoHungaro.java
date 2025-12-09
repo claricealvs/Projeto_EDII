@@ -23,7 +23,7 @@ public class AlgoritmoHungaro {
 
         initArrays();
 
-        // --- Passo 1 do PDF: Redução de Linhas e Colunas ---
+        // --- Passo 1: Redução de Linhas e Colunas ---
         reduzirLinhas();
         reduzirColunas();
 
@@ -46,7 +46,7 @@ public class AlgoritmoHungaro {
                     passo = limparCoberturasEPrimos();
                     break;
                 case 6:
-                    passo = ajustarMatriz(); // Passo 4 do PDF: Ajuste com menor elemento
+                    passo = ajustarMatriz(); // Passo 4: Ajuste com menor elemento
                     break;
             }
         }
@@ -153,7 +153,7 @@ public class AlgoritmoHungaro {
             }
 
             if (linha == -1) {
-                return 6; // Não achou zero? Precisa ajustar a matriz (Passo 4 do PDF)
+                return 6; // Não achou zero? Precisa ajustar a matriz (Passo 4)
             }
 
             primeNoLinha[linha] = col; // Marca como zero primo
