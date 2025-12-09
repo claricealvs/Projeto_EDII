@@ -12,20 +12,21 @@ public class DadosDoProjeto {
     private final List<Professor> professores;
     private final List<Disciplina> disciplinas;
 
-    // Número de disciplinas para cada professor
+    // Número de disciplinas para cada professor em ordem alfabética
     private static final Map<String, Integer> CAPACIDADES_PROFESSORES = Map.ofEntries(
 
-            Map.entry("Cristiane", 3),
             Map.entry("Amaury", 2),
-            Map.entry("Rachel", 3),
-            Map.entry("Paulo", 2),
-            Map.entry("Nattane", 3),
-            Map.entry("Júnio", 2),
+            Map.entry("Cristiane", 3),
             Map.entry("Gabriel", 3),
             Map.entry("Jean", 2),
-            Map.entry("Luciana", 3),
+            Map.entry("Júnio", 2),
             Map.entry("Jucelino", 1),
-            Map.entry("Marcos", 1)
+            Map.entry("Luciana", 3),
+            Map.entry("Marcos", 1),
+            Map.entry("Nattane", 3),
+            Map.entry("Paulo", 2),
+            Map.entry("Rachel", 3)
+
     );
 
     // Vagas por disciplina
@@ -43,17 +44,18 @@ public class DadosDoProjeto {
         carregarDisciplinas();
         carregarProfessores();
     }
-
+    // disciplinas organizadas alfabeticamente
     private void carregarDisciplinas() {
         String[] nomesDisciplinas = {
-                "Programação II", "Sistemas Operacionais", "Ética, Computador e Sociedade",
-                "Engenharia de Software", "Optativa I", "Redes de Computadores",
-                "Bancos de Dados II", "Programação para Web I", "Estrutura de Dados II",
-                "Introdução a Mineração de Dados", "Elaboração de Projetos",
-                "Programação para Dispositivos Móveis", "Arquitetura de Software",
-                "Projeto Integrador III", "Optativa III", "Construção de Sistemas",
-                "Processo de Análise e Desenvolvimento de Sistemas", "Projeto Integrador IV"
+                "Arquitetura de Software", "Bancos de Dados II", "Construção de Sistemas",
+                "Elaboração de Projetos", "Engenharia de Software", "Estrutura de Dados II",
+                "Ética, Computador e Sociedade", "Introdução a Mineração de Dados",
+                "Optativa I", "Optativa III", "Processo de Análise e Desenvolvimento de Sistemas",
+                "Programação II", "Programação para Dispositivos Móveis",
+                "Programação para Web I", "Projeto Integrador III",
+                "Projeto Integrador IV", "Redes de Computadores", "Sistemas Operacionais"
         };
+
 
         for (String nome : nomesDisciplinas) {
             int vagas = VAGAS_DISCIPLINAS.getOrDefault(nome, 1);
@@ -70,6 +72,7 @@ public class DadosDoProjeto {
         }
 
         // Definição das Preferências
+        // A lógica de atribuição é organizada alfabeticamente pelo nome do professor
         for (Professor p : professores) {
             switch (p.getNome()) {
                 case "Amaury":
@@ -82,6 +85,33 @@ public class DadosDoProjeto {
                     p.adicionarPreferencia("Bancos de Dados II", 4);
                     p.adicionarPreferencia("Elaboração de Projetos", 3);
                     break;
+                case "Gabriel":
+                    p.adicionarPreferencia("Arquitetura de Software", 5);
+                    p.adicionarPreferencia("Construção de Sistemas", 5);
+                    break;
+                case "Jean":
+                    p.adicionarPreferencia("Projeto Integrador IV", 5);
+                    break;
+                case "Júnio":
+                    p.adicionarPreferencia("Estrutura de Dados II", 5);
+                    p.adicionarPreferencia("Programação para Dispositivos Móveis", 4);
+                    p.adicionarPreferencia("Optativa III", 3);
+                    break;
+                case "Jucelino":
+                    p.adicionarPreferencia("Lógica", 5);
+                    break;
+                case "Luciana":
+                    p.adicionarPreferencia("Projeto Integrador IV", 5);
+                    break;
+                case "Marcos":
+                    p.adicionarPreferencia("Álgebra Linear", 5);
+                    break;
+                case "Nattane":
+                    p.adicionarPreferencia("Optativa I", 3);
+                    p.adicionarPreferencia("Programação para Web I", 5);
+                    p.adicionarPreferencia("Introdução a Mineração de Dados", 4);
+                    p.adicionarPreferencia("Projeto Integrador III", 3);
+                    break;
                 case "Paulo":
                     p.adicionarPreferencia("Engenharia de Software", 5);
                     p.adicionarPreferencia("Processo de Análise e Desenvolvimento de Sistemas", 5);
@@ -90,33 +120,6 @@ public class DadosDoProjeto {
                 case "Rachel":
                     p.adicionarPreferencia("Ética, Computador e Sociedade", 5);
                     p.adicionarPreferencia("Projeto Integrador III", 4);
-                    break;
-                case "Nattane":
-                    p.adicionarPreferencia("Optativa I", 3);
-                    p.adicionarPreferencia("Programação para Web I", 5);
-                    p.adicionarPreferencia("Introdução a Mineração de Dados", 4);
-                    p.adicionarPreferencia("Projeto Integrador III", 3);
-                    break;
-                case "Júnio":
-                    p.adicionarPreferencia("Estrutura de Dados II", 5);
-                    p.adicionarPreferencia("Programação para Dispositivos Móveis", 4);
-                    p.adicionarPreferencia("Optativa III", 3);
-                    break;
-                case "Gabriel":
-                    p.adicionarPreferencia("Arquitetura de Software", 5);
-                    p.adicionarPreferencia("Construção de Sistemas", 5);
-                    break;
-                case "Jean":
-                    p.adicionarPreferencia("Projeto Integrador IV", 5);
-                    break;
-                case "Luciana":
-                    p.adicionarPreferencia("Projeto Integrador IV", 5);
-                    break;
-                case "Jucelino":
-                    p.adicionarPreferencia("Lógica", 5);
-                    break;
-                case "Marcos":
-                    p.adicionarPreferencia("Álgebra Linear", 5);
                     break;
             }
         }
