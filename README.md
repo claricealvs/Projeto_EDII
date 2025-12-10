@@ -1,9 +1,8 @@
-# Projeto_EDII
-## **Distribuição de Disciplinas Entre Professores**
+# 👨🏻‍🏫 **Distribuição de Disciplinas Entre Professores**
 
-## **Integrantes da Equipe:** Ariane Soares, Clarice Alves, Davydson Rodrigues,  Pedro Henrique e Ryan Victor
+## **Integrantes da Equipe:** Ariane Soares, Clarice Alves, Davydson Rodrigues,  Pedro Henrique e Ryan Victor.
 
-## **1\. Introdução e Objetivo**
+## 🎯 **1\. Introdução e Objetivo**
 
 O objetivo principal é distribuir disciplinas entre os professores do núcleo, respeitando a capacidade de carga horária de cada docente e maximizando a satisfação global baseada em suas preferências. A solução utiliza a modelagem de **Grafos Bipartidos** e implementa o **Algoritmo Húngaro** (Método Kuhn-Munkres) para encontrar o emparelhamento perfeito de custo mínimo (que equivale à satisfação máxima).
 
@@ -14,7 +13,7 @@ O Algoritmo Húngaro foi escolhido como método de solução por ser ideal para 
 * Cada atribuição entre Professor e Disciplina possui um custo associado, que é derivado da preferência manifestada pelo professor. A partir dessas designações, é encontrado o custo mínimo, que maximiza a satisfação geral.
 
 
-## **2\. Arquitetura da Solução**
+## 📂 **2\. Arquitetura da Solução**
 
 O sistema foi desenvolvido em **Java** utilizando o padrão arquitetural MVC (Model-View-Controller) simplificado, dividido nos seguintes pacotes:
 
@@ -22,7 +21,7 @@ O sistema foi desenvolvido em **Java** utilizando o padrão arquitetural MVC (Mo
 * **grafo (Adapter)**: Responsável pela transformação dos dados. A classe GrafoBipartido converte as listas de objetos em uma Matriz de Adjacência (Matriz de Custo) times.
 * **algoritmo (Core)**: Contém a lógica matemática pura. A classe AlgoritmoHungaro processa a matriz de inteiros para encontrar a alocação ótima, independente das regras de negócio.
 
-## **3\. Especificação da Entrada**
+## ⌨ **3\. Especificação da Entrada**
 
 A entrada do sistema consiste em dois conjuntos de dados pré-definidos (baseados na tabela oficial do semestre 2025/2):
 
@@ -34,7 +33,7 @@ Processamento da Entrada (Replicação de Slots): Como o Algoritmo Húngaro exig
 * *Exemplo:* Professor "Cristiane" (Capacidade 3\) torna-se 3 nós distintos: P\_Cristiane\_1, P\_Cristiane\_2, P\_Cristiane\_3.
 * **Balanceamento:** Caso o número de slots de professores e disciplinas seja dividido, o sistema gera automaticamente "Slots Fictícios" para garantir uma matriz quadrada de dimensão 25x25.
 
-## **4\. Matriz de Custo**
+## 🧾 **4\. Matriz de Custo**
 
 A peça central da solução é a **Matriz de Custo**, gerada pela classe `GrafoBipartido`. Ela traduz as preferências subjetivas dos professores em valores numéricos que o algoritmo consegue processar.
 
@@ -54,7 +53,7 @@ Além da inversão de valores, o sistema aplica regras rígidas para impedir alo
 * **Afinidade Zero (Proibição):** Caso um professor não tenha listado uma disciplina em suas preferências, o sistema atribui um custo "infinito" (o maior valor inteiro possível na linguagem Java) àquela posição na matriz. Isso matematicamente proíbe o algoritmo de realizar essa alocação.
 * **Slots Fictícios (Balanceamento):** Para alocações que envolvem slots de sobra (fictícios), o custo é definido sempre como zero. Isso permite que o algoritmo descarte o excesso de oferta ou demanda sem penalizar o cálculo global da solução.
 
-## **5\. Saída**
+## 🖥 **5\. Saída**
 
 A saída é apresentada visualmente em uma tabela contendo o pareamento ótimo:
 
@@ -63,7 +62,7 @@ A saída é apresentada visualmente em uma tabela contendo o pareamento ótimo:
 * **Status de Alocação:** Indicação visual clara caso um professor tenha ficado sem aula ("SEM\_PROFESSOR") ou uma disciplina tenha sobrado ("FIC\_SOBRA"), decorrente do balanceamento da matriz.
 * **Satisfação Total:** Somatório das preferências de todas as alocações realizadas.
 
-## **6\. Análise de Complexidade**
+## 🔢 **6\. Análise de Complexidade**
 
 A eficiência do sistema é determinada pelo Algoritmo Húngaro.
 
@@ -71,7 +70,7 @@ A eficiência do sistema é determinada pelo Algoritmo Húngaro.
     * No contexto deste projeto, onde n \= 25, o número de operações é da ordem de 25^3 \= 15.625 operações elementares.
 * **Complexidade de Espaço:** O algoritmo utiliza matrizes auxiliares para marcação (linhas cobertas, colunas cobertas, estrelas e primos), resultando em complexidade de espaço **O(n^2)** para armazenar a matriz de custo e a matriz de atribuição.
 
-## **7\. Lógica de Execução**
+## ⚙ **7\. Lógica de Execução**
 
 O algoritmo executa iterativamente os seguintes passos até a convergência:
 
@@ -79,7 +78,7 @@ O algoritmo executa iterativamente os seguintes passos até a convergência:
 2. **Cobertura:** Tentativa de cobrir todos os zeros com o número mínimo de linhas/colunas. Se o número de linhas necessárias for igual a $n$ (25), a solução ótima foi encontrada.
 3. **Ajuste:** Caso contrário, o algoritmo modifica a matriz subtraindo o menor elemento não coberto dos demais e somando-o nas interseções, forçando o surgimento de novos zeros em posições estratégicas para criar novos caminhos de emparelhamento.
 
-## **8\. Informações Adicionais**
+## ➕ **8\. Informações Adicionais**
 
 ### **Como Rodar o Projeto**
 
