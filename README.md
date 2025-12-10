@@ -1,6 +1,6 @@
 # 👨🏻‍🏫 **Distribuição de Disciplinas Entre Professores**
 
-## **Integrantes da Equipe:** Ariane Soares, Clarice Alves, Davydson Rodrigues,  Pedro Henrique e Ryan Victor.
+### **Integrantes da Equipe:** Ariane Soares, Clarice Alves, Davydson Rodrigues,  Pedro Henrique e Ryan Victor.
 
 ## 🎯 **1\. Introdução e Objetivo**
 
