@@ -15,7 +15,7 @@ O Algoritmo Húngaro foi escolhido como método de solução por ser ideal para 
 
 ## 📂 **2\. Arquitetura da Solução**
 
-O sistema foi desenvolvido em **Java** utilizando o padrão arquitetural MVC (Model-View-Controller) simplificado, dividido nos seguintes pacotes:
+O sistema foi desenvolvido em **Java**, dividido nos seguintes pacotes:
 
 * **model**: Define as entidades básicas (Professor, Disciplina) e a unidade granular de alocação (Slot), que representa uma fração da capacidade de um professor ou uma vaga de disciplina.
 * **grafo (Adapter)**: Responsável pela transformação dos dados. A classe GrafoBipartido converte as listas de objetos em uma Matriz de Adjacência (Matriz de Custo) times.
