@@ -12,20 +12,20 @@ public class DadosDoProjeto {
     private final List<Professor> professores;
     private final List<Disciplina> disciplinas;
 
-    // Número de disciplinas para cada professor em ordem alfabética
+    // Número de disciplinas para cada professor
     private static final Map<String, Integer> CAPACIDADES_PROFESSORES = Map.ofEntries(
 
-            Map.entry("Amaury", 2),
+            Map.entry("Amaury", 3),
             Map.entry("Cristiane", 3),
-            Map.entry("Gabriel", 3),
-            Map.entry("Jean", 2),
-            Map.entry("Júnio", 2),
+            Map.entry("Gabriel", 2),
+            Map.entry("Jean", 1),
+            Map.entry("Júnio", 3),
             Map.entry("Jucelino", 1),
-            Map.entry("Luciana", 3),
+            Map.entry("Luciana", 1),
             Map.entry("Marcos", 1),
-            Map.entry("Nattane", 3),
-            Map.entry("Paulo", 2),
-            Map.entry("Rachel", 3)
+            Map.entry("Nattane", 4),
+            Map.entry("Paulo", 3),
+            Map.entry("Rachel", 2)
 
     );
 
@@ -38,13 +38,15 @@ public class DadosDoProjeto {
             // Todas as outras disciplinas têm 1 vaga por padrão
     );
 
+
     public DadosDoProjeto() {
         this.professores = new ArrayList<>();
         this.disciplinas = new ArrayList<>();
         carregarDisciplinas();
         carregarProfessores();
     }
-    // disciplinas organizadas alfabeticamente
+
+
     private void carregarDisciplinas() {
         String[] nomesDisciplinas = {
                 "Arquitetura de Software", "Bancos de Dados II", "Construção de Sistemas",
@@ -55,7 +57,6 @@ public class DadosDoProjeto {
                 "Programação para Web I", "Projeto Integrador III",
                 "Projeto Integrador IV", "Redes de Computadores", "Sistemas Operacionais"
         };
-
 
         for (String nome : nomesDisciplinas) {
             int vagas = VAGAS_DISCIPLINAS.getOrDefault(nome, 1);
@@ -72,7 +73,6 @@ public class DadosDoProjeto {
         }
 
         // Definição das Preferências
-        // A lógica de atribuição é organizada alfabeticamente pelo nome do professor
         for (Professor p : professores) {
             switch (p.getNome()) {
                 case "Amaury":
